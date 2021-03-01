@@ -13,6 +13,21 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+const Discord = require('discord.js');
+const client = new Discord.Client();
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+client.on('message', msg => {
+  if (msg.content === 'ping') {
+    msg.reply('pong');
+  }
+});
+
+client.login('ODA4NzgyOTM4NzgzMjE5NzMy.YCLjzw.JmMoey0wrzG3sBMGiDBBRO9V4R0');
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
